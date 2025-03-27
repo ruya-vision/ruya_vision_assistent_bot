@@ -34,8 +34,7 @@ motivatsiya = [
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     await message.answer(
-        f"Assalomu alaykum, {message.from_user.first_name}!
-"
+        f"Assalomu alaykum, {message.from_user.first_name}!\n"
         "Men — Ruya Vision Assistent botiman. Quyidagilardan birini tanlang:",
         reply_markup=main_menu
     )
