@@ -42,7 +42,7 @@ async def send_welcome(message: types.Message):
 async def about_us(message: types.Message):
     photo = InputFile("logo.jpeg")
     await bot.send_photo(chat_id=message.chat.id, photo=photo,
-        caption="RUYA VISION — bu zamonaviy kontent yaratish, mobilografiya, dizayn va reklama sohalarida xizmat ko‘rsatadigan ijodiy jamoa."
+        caption="RUYA VISION — bu zamonaviy kontent yaratish, mobilografiya, dizayn va reklama sohalarida xizmat ko‘rsatadigan ijodiy jamoa.\n"
                 "🎯 Maqsadimiz – mijozlarimizga sifatli vizual kontent va marketing yechimlarini taqdim etish.",
         parse_mode='Markdown'
     )
@@ -50,11 +50,11 @@ async def about_us(message: types.Message):
 @dp.message_handler(lambda message: message.text == "Xizmatlar")
 async def services(message: types.Message):
     await message.answer(
-        "Bizning xizmatlar quyidagilarni o‘z ichiga oladi (birgalikda):"
-        "- Mobilografiya"
-        "- Content meykerlik"
-        "- Grafik dizayn"
-        "- Targeting va Instagram boshqaruvi"
+        "Bizning xizmatlar quyidagilarni o‘z ichiga oladi (Umumiy):\n"
+        "- Mobilografiya\n"
+        "- Content meykerlik\n"
+        "- Grafik dizayn\n"
+        "- Targeting va Instagram boshqaruvi\n"
     )
 
 @dp.message_handler(lambda message: message.text == "Aloqa")
@@ -97,11 +97,11 @@ async def finish_order(message: types.Message, state: FSMContext):
 
     write_order(name, phone, comment)
 
-    order_text = f"Yangi buyurtma:\nIsmi: {name}\nTel: {phone}\nIzoh: {comment}"
+    order_text = f"Buyurtma yaratildi!\n\nIsmi:  {name}\nTel:  {phone}\nIzoh:  {comment}"
     await message.answer(order_text)
 
     quote = random.choice(motivatsiya)
-    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.\n\nMotivatsiya: {quote}")
+    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.\n\ {quote}")
 
     await state.finish()
 
