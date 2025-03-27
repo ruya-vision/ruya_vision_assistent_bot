@@ -33,8 +33,7 @@ motivatsiya = [
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     await message.answer(
-        f"Assalomu alaykum, {message.from_user.first_name}!
-"
+        f"Assalomu alaykum, {message.from_user.first_name}!\n"
         "Men — Ruya Vision Assistent botiman. Quyidagilardan birini tanlang:",
         reply_markup=main_menu
     )
@@ -43,8 +42,7 @@ async def send_welcome(message: types.Message):
 async def about_us(message: types.Message):
     photo = InputFile("logo.jpeg")
     await bot.send_photo(chat_id=message.chat.id, photo=photo,
-        caption="RUYA VISION — bu zamonaviy kontent yaratish, mobilografiya, dizayn va reklama sohalarida xizmat ko‘rsatadigan ijodiy jamoa.
-"
+        caption="RUYA VISION — bu zamonaviy kontent yaratish, mobilografiya, dizayn va reklama sohalarida xizmat ko‘rsatadigan ijodiy jamoa."
                 "🎯 Maqsadimiz – mijozlarimizga sifatli vizual kontent va marketing yechimlarini taqdim etish.",
         parse_mode='Markdown'
     )
@@ -52,14 +50,10 @@ async def about_us(message: types.Message):
 @dp.message_handler(lambda message: message.text == "Xizmatlar")
 async def services(message: types.Message):
     await message.answer(
-        "Bizning xizmatlar quyidagilarni o‘z ichiga oladi (birgalikda):
-"
-        "- Mobilografiya
-"
-        "- Content meykerlik
-"
-        "- Grafik dizayn
-"
+        "Bizning xizmatlar quyidagilarni o‘z ichiga oladi (birgalikda):"
+        "- Mobilografiya"
+        "- Content meykerlik"
+        "- Grafik dizayn"
         "- Targeting va Instagram boshqaruvi"
     )
 
@@ -103,16 +97,11 @@ async def finish_order(message: types.Message, state: FSMContext):
 
     write_order(name, phone, comment)
 
-    order_text = f"Yangi buyurtma:
-Ismi: {name}
-Tel: {phone}
-Izoh: {comment}"
+    order_text = f"Yangi buyurtma:\nIsmi: {name}\nTel: {phone}\nIzoh: {comment}"
     await message.answer(order_text)
 
     quote = random.choice(motivatsiya)
-    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.
-
-Motivatsiya: {quote}")
+    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.\n\nMotivatsiya: {quote}")
 
     await state.finish()
 
