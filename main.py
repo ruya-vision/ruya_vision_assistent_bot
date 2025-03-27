@@ -10,7 +10,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from sheets import write_order
 
-BOT_TOKEN = os.getenv("8009333235:AAGw-i0xJUhosC-Dci_DmmzVoCLKtCIwgOE")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=BOT_TOKEN)
@@ -98,15 +98,11 @@ async def finish_order(message: types.Message, state: FSMContext):
 
     write_order(name, phone, comment)
 
-    order_text = f"Yangi buyurtma:"
-    Ismi: {name}
-    Tel: {phone}
-    Izoh: {comment}
+    order_text = f"Yangi buyurtma:\nIsmi: {name}\nTel: {phone}\nIzoh: {comment}"
     await message.answer(order_text)
 
     quote = random.choice(motivatsiya)
-    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.")
-    Motivatsiya: {quote}
+    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.\n\nMotivatsiya: {quote}")
 
     await state.finish()
 
