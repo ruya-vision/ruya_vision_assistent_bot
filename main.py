@@ -70,6 +70,7 @@ class OrderStates(StatesGroup):
     waiting_for_name = State()
     waiting_for_phone = State()
     waiting_for_comment = State()
+    waiting_for_timestamp = State()
 
 @dp.message_handler(lambda message: message.text == "Buyurtma berish")
 async def order(message: types.Message):
