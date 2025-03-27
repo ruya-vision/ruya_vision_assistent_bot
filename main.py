@@ -106,7 +106,7 @@ async def finish_order(message: types.Message, state: FSMContext):
 
     quote = random.choice(motivatsiya)
     await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.")
-    Motivatsiya: {quote}")
+    Motivatsiya: {quote}
 
     await state.finish()
 
