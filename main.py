@@ -10,7 +10,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from sheets import write_order
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("8009333235:AAGw-i0xJUhosC-Dci_DmmzVoCLKtCIwgOE")
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=BOT_TOKEN)
