@@ -98,14 +98,14 @@ async def finish_order(message: types.Message, state: FSMContext):
 
     write_order(name, phone, comment)
 
-    order_text = f"Yangi buyurtma:
+    order_text = f"Yangi buyurtma:"
     Ismi: {name}
     Tel: {phone}
-    Izoh: {comment}"
+    Izoh: {comment}
     await message.answer(order_text)
 
     quote = random.choice(motivatsiya)
-    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.
+    await message.answer(f"Rahmat! Tez orada siz bilan bog‘lanamiz.")
     Motivatsiya: {quote}")
 
     await state.finish()
